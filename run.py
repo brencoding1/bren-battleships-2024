@@ -11,12 +11,18 @@ A "O" will appear if you strike a ship.
 Missing a ship will result in a "X" being placed next to it.
 """
 
-
 from random import randint
 import os
 import sys
 
-
+os.system('clear')
+print("                  Welcome to Battleships!")
+print("-------------------------------------------------------------------")
+print("         You will now create your own custom Battleship board!")
+print("   You may create a Battleship board of up to 10 rows and 10 columns.")
+print("   Below choose your board size by typing a number between 1 and 10,")
+print("   You then may press enter to continue.")
+print("-------------------------------------------------------------------")
 
 
 
