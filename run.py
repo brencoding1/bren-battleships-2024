@@ -184,5 +184,18 @@ def user_guess():
     turn += 1
 
 
+    def run_game():
+    """
+    Overall game is ran here. It is ran in order.
+    """
+    get_board_size()
+    print("               Let's Begin Battleships!")
+    print("-----------------------------------------------------")
+    print(" ")
+    print_board()
+    making_ships()
+    making_guesses()
+
+
 run_game()
 restart_game()
