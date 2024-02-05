@@ -25,7 +25,7 @@ print("   You then may press enter to continue.")
 print("-------------------------------------------------------------------")
 
 while True:
-    BOARD_SIZE = input(" Enter your board size: ")
+    BOARD_SIZE = input(" Enter your board size:\n")
     if BOARD_SIZE.isdigit():
         BOARD_SIZE = int(BOARD_SIZE)
         if BOARD_SIZE > 1 and BOARD_SIZE <= 10:
@@ -219,7 +219,7 @@ def restart_game():
 
             
 
-# These are global variables used throughout the code
+# Gloabal Variables
 Y = BOARD_SIZE
 BOARD = []
 SHIP_PLACEMENT = []
