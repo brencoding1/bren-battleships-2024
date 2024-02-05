@@ -41,6 +41,19 @@ while True:
 
 
 
+def get_board_size():
+    """
+    This is the global variable for the size of the board.
+    The rows are made with this function.
+    """
+    for x in range(Y):
+        BOARD.append(["-"] * Y)
+    return Y
+
+
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
 
 
 
