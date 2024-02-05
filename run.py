@@ -104,5 +104,85 @@ def placing_ships():
     # un-comment this if you want to see where the ships are placed.
 
 
+def user_guess():
+    """
+    The user will provide input to this function.
+    Verify the input by comparing it to the ships' location.
+    Capture the estimate and provide the result via the terminal.
+    modifies the board based on hit or miss.
+    """
+    global SHIPS_SUNK
+    for turn in range((Y*Y) // 2):
+        shots = int((Y*Y) // 2)
+        print(" ")
+        print(f'  There are {shots - turn} shots left."')
+        print('   How many ships remaining?"')
+        print(f'  "{TOTAL_SHIPS - SHIPS_SUNK} left."')
+        guess_col = None
+        while True:
+            guess_col = input("  Enter your column letter: ")
+            if guess_col.isalpha() and len(guess_col) == 1:
+                guess_col = guess_col.lower()
+                guess_col = ord(guess_col) - 96
+                break
+            else:
+                print_board()
+                print(" The available letters left are....")
+                continue
+        guess_row = None
+        while True:
+            guess_row = input("  Enter row number: ")
+            if guess_row.isdigit():
+                guess_row = int(guess_row)
+                break
+            else:
+                print_board()
+                print("  Oops, your entry is not in range...")
+                continue
+        g_row = guess_row
+        g_col = guess_col
+        guess = [g_row, g_col]
+        if guess in SHIP_PLACEMENT:
+            print("-------------------------------------------------------")
+            print("          Good Job! You have sank a battleship!")
+            print("-------------------------------------------------------")
+            BOARD[g_row - 1][g_col - 1] = "O"
+            SHIPS_SUNK += 1
+        elif (turn + 1) - shots == 0:
+            print("-------------------------------------------------------")
+            print("                   Game Over...")
+            print("   Lets return to base and try again later")
+            print("-------------------------------------------------------")
+        elif (g_row < 1 or g_row > Y) or (g_col < 1 or g_col > Y):
+            print("-------------------------------------------------------")
+            print("           Your coordinates are out of range!")
+            print("              You are wasting all your shots!")
+            print(f"          Try to shoot within rows: 1-{Y}")
+            print(f"          And the columns: A-{ALPHABET[Y - 1]}")
+            print("-------------------------------------------------------")
+        elif (BOARD[g_row - 1][g_col - 1]) == "X":
+            print("-------------------------------------------------------")
+            print("          You have already guessed that one...")
+            print("-------------------------------------------------------")
+        elif (BOARD[g_row - 1][g_col - 1]) == "O":
+            print("-------------------------------------------------------")
+            print("          You guessed that one already Sir...")
+            print("-------------------------------------------------------")
+        else:
+            print("-------------------------------------------------------")
+            print(" You have missed the battleship, let's go again!")
+            print("-------------------------------------------------------")
+            BOARD[g_row - 1][g_col - 1] = "X"
+        if SHIPS_SUNK == TOTAL_SHIPS:
+            print_board()
+            print("-------------------------------------------------------")
+            print("Congratulations, you have sunk all the remaining ships!")
+            print("               Mission Complete!")
+            print("-------------------------------------------------------")
+            break
+        print_board()
+    turn += 1
+
+
 run_game()
 restart_game()
