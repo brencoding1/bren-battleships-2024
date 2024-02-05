@@ -70,7 +70,38 @@ def print_board():
         row_number += 1
 
 
-
+def placing_ships():
+    """
+    The area the ships are put on the board.
+    """
+    ships_placed = 0
+    global TOTAL_SHIPS
+    if Y <= 3:
+        TOTAL_SHIPS = 1
+        while ships_placed != TOTAL_SHIPS:
+            ship_row = randint(1, (Y))
+            ship_col = randint(1, (Y))
+            ship_location = [ship_row, ship_col]
+            SHIP_PLACEMENT.append(ship_location)
+            ships_placed += 1
+    elif Y < 8 and Y > 3:
+        TOTAL_SHIPS = 3
+        while ships_placed != TOTAL_SHIPS:
+            ship_row = randint(1, (Y))
+            ship_col = randint(1, (Y))
+            ship_location = [ship_row, ship_col]
+            SHIP_PLACEMENT.append(ship_location)
+            ships_placed += 1
+    else:
+        TOTAL_SHIPS = 10
+        while ships_placed != TOTAL_SHIPS:
+            ship_row = randint(1, (Y))
+            ship_col = randint(1, (Y))
+            ship_location = [ship_row, ship_col]
+            SHIP_PLACEMENT.append(ship_location)
+            ships_placed += 1
+    # print(ship_placement)
+    # un-comment this if you want to see where the ships are placed.
 
 
 run_game()
