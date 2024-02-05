@@ -193,8 +193,8 @@ def run_game():
     print("-----------------------------------------------------")
     print(" ")
     print_board()
-    making_ships()
-    making_guesses()
+    placing_ships_ships()
+    user_guess()
 
 
 def restart_game():
