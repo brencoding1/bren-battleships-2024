@@ -70,7 +70,7 @@ def print_board():
         row_number += 1
 
 
-def placing_ships():
+def making_ships():
     """
     The area the ships are put on the board.
     """
@@ -104,7 +104,7 @@ def placing_ships():
     # un-comment this if you want to see where the ships are placed.
 
 
-def user_guess():
+def making_guesses():
     """
     The user will provide input to this function.
     Verify the input by comparing it to the ships' location.
@@ -193,8 +193,8 @@ def run_game():
     print("-----------------------------------------------------")
     print(" ")
     print_board()
-    placing_ships_ships()
-    user_guess()
+    making_ships()
+    making_guesses()
 
 
 def restart_game():
