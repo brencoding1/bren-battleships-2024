@@ -184,7 +184,7 @@ def user_guess():
     turn += 1
 
 
-    def run_game():
+def run_game():
     """
     Overall game is ran here. It is ran in order.
     """
@@ -196,6 +196,35 @@ def user_guess():
     making_ships()
     making_guesses()
 
+
+def restart_game():
+    """
+    Lets us restart game or quit to terminal.
+    """
+    play = input("Type yes if you would like to play again or no if you would like to quit: ").lower()
+    while True:
+        if play == "no":
+            exit()
+        elif play == "yes":
+            # The restart code is from StackOverflow
+            print("------------------------------------")
+            print("argv was", sys.argv)
+            print("sys.executable was", sys.executable)
+            print("restart now")
+            print("------------------------------------")
+            os.execv(sys.executable, ['python'] + sys.argv)
+        else:
+            print("please enter either yes or no")
+            restart_game()
+
+            
+
+# These are global variables used throughout the code
+Y = BOARD_SIZE
+BOARD = []
+SHIP_PLACEMENT = []
+TOTAL_SHIPS = 10
+SHIPS_SUNK = 0
 
 run_game()
 restart_game()
