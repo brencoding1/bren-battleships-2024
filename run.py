@@ -24,6 +24,20 @@ print("   Below choose your board size by typing a number between 1 and 10,")
 print("   You then may press enter to continue.")
 print("-------------------------------------------------------------------")
 
+while True:
+    BOARD_SIZE = input(" Enter your board size: ")
+    if BOARD_SIZE.isdigit():
+        BOARD_SIZE = int(BOARD_SIZE)
+        if BOARD_SIZE > 1 and BOARD_SIZE <= 10:
+            print(" ")
+            print("Great, let the games commence!")
+            print("--------------------------------")
+            break
+        else:
+            print("   Sorry, the number chosen has to be between 1 and 10")
+    else:
+        print("   Sorry, the letters and numbers cant be below 1 or above 10")
+        continue
 
 
 
