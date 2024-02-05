@@ -10,3 +10,8 @@ The battleships on the board will be concealed.
 A "O" will appear if you strike a ship.
 Missing a ship will result in a "X" being placed next to it.
 """
+
+
+from random import randint
+import os
+import sys
