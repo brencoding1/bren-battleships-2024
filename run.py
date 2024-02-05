@@ -15,3 +15,17 @@ Missing a ship will result in a "X" being placed next to it.
 from random import randint
 import os
 import sys
+
+
+
+
+
+
+
+
+
+
+
+
+run_game()
+restart_game()
